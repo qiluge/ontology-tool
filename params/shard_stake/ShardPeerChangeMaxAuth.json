@@ -1,21 +1,9 @@
 {
   "shard_id": 1,
   "peer_wallets": [
-    "wallets/peer1/wallet.dat",
-    "wallets/peer2/wallet.dat",
-    "wallets/peer3/wallet.dat",
-    "wallets/peer4/wallet.dat",
-    "wallets/peer5/wallet.dat",
-    "wallets/peer6/wallet.dat",
-    "wallets/peer7/wallet.dat"
+    "../ontology/wallet.dat"
   ],
   "amount": [
-    500000,
-    500000,
-    500000,
-    500000,
-    500000,
-    500000,
     500000
   ]
 }
