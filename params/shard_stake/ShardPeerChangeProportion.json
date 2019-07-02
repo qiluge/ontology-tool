@@ -1,13 +1,13 @@
 {
   "shard_id": 1,
   "peer_wallets": [
-    "wallets/peer1/wallet.dat",
-    "wallets/peer2/wallet.dat",
-    "wallets/peer3/wallet.dat",
-    "wallets/peer4/wallet.dat",
-    "wallets/peer5/wallet.dat",
-    "wallets/peer6/wallet.dat",
-    "wallets/peer7/wallet.dat"
+    "wallets/peer1-owner/wallet.dat",
+    "wallets/peer2-owner/wallet.dat",
+    "wallets/peer3-owner/wallet.dat",
+    "wallets/peer4-owner/wallet.dat",
+    "wallets/peer5-owner/wallet.dat",
+    "wallets/peer6-owner/wallet.dat",
+    "wallets/peer7-owner/wallet.dat"
   ],
   "amount": [
     50,

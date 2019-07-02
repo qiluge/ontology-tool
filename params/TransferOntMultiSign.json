@@ -9,16 +9,18 @@
     "wallets/peer7/wallet.dat"
   ],
   "ToAddress": [
-    "AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri",
-    "AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN",
-    "ARpjnrnHEjXhg4aw7vY6xsY6CfQ1XEWzWC",
-    "AQs2BmzzFVk7pQPfTQQi9CTEz43ejSyBnt",
-    "AKBSRLbFNvUrWEGtKxNTpe2ZdkepQjYKfM",
-    "AduX7odaWGipkdvzBwyaTgsumRbRzhhiwe",
-    "ANFfWhk3A5iFXQrVBHKrerjDDapYmLo5Bi",
-    "AK3YRcRvKrASQ6nTfW48Z4iMZ2sDTDRiMC"
+    "AZonXUcUgzWb2KYdSiLapgqCMEfWGCDTw5",
+    "AZ1L9xX4DLrG4A7DkyVAYzgLTpsP18FaBF",
+    "APyA8ZuU7RZdamYRP5gchgbAnxJjHqmfua",
+    "AWVpNjLWiRTXGfyp6vzoLcx36J7uqbx2E9",
+    "AJmc2BQdQdZJBfDjDtQqXm8sEfSNBhgPV6",
+    "AHvYokQTYWHpWZJekPzAqQqzi95hSHpt2c",
+    "AKecq2DQF5vpCLmsYDGBY8cvJKTwf8TN69",
+    "AN9PD1zC4moFWjDzY4xG9bAr7R7UvHwmLL",
+    "AZ3BTJt7jNGwJjVLsYJAyfLtCJ38Cd8Uri"
   ],
   "Amount": [
+    100000000,
     100000000,
     100000000,
     100000000,
