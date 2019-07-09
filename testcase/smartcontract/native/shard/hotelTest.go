@@ -2,15 +2,16 @@ package shard
 
 import (
 	"encoding/json"
+	"github.com/ontio/ontology/common"
 	"io/ioutil"
 
 	"github.com/ontio/ontology-tool/testframework"
 )
 
 type ShardHotelInitParam struct {
-	Path      string `json:"path"`
-	ShardID   uint64 `json:"shard_id"`
-	RoomCount uint64 `json:"room_count"`
+	Path      string         `json:"path"`
+	ShardID   common.ShardID `json:"shard_id"`
+	RoomCount uint64         `json:"room_count"`
 }
 
 func TestShardHotelInit(ctx *testframework.TestFrameworkContext) bool {
@@ -80,9 +81,9 @@ func TestShardHotelQuery(ctx *testframework.TestFrameworkContext) bool {
 }
 
 type ShardReserveHotelParam struct {
-	Path    string `json:"path"`
-	ShardID uint64 `json:"shard_id"`
-	RoomNo  uint64 `json:"room_no"`
+	Path    string         `json:"path"`
+	ShardID common.ShardID `json:"shard_id"`
+	RoomNo  uint64         `json:"room_no"`
 }
 
 func TestShardHotelReserve(ctx *testframework.TestFrameworkContext) bool {
@@ -115,9 +116,9 @@ func TestShardHotelReserve(ctx *testframework.TestFrameworkContext) bool {
 }
 
 type ShardCheckoutHotelParam struct {
-	Path    string `json:"path"`
-	ShardID uint64 `json:"shard_id"`
-	RoomNo  uint64 `json:"room_no"`
+	Path    string         `json:"path"`
+	ShardID common.ShardID `json:"shard_id"`
+	RoomNo  uint64         `json:"room_no"`
 }
 
 func TestShardHotelCheckout(ctx *testframework.TestFrameworkContext) bool {
@@ -150,12 +151,12 @@ func TestShardHotelCheckout(ctx *testframework.TestFrameworkContext) bool {
 }
 
 type ShardHotelReserve2Param struct {
-	Path          string `json:"path"`
-	ShardID       uint64 `json:"shard_id"`
-	RoomNo        uint64 `json:"room_no"`
-	ShardID2      uint64 `json:"shard_id_2"`
-	RoomNo2       uint64 `json:"room_no_2"`
-	Transactional bool   `json:"transactional"`
+	Path          string         `json:"path"`
+	ShardID       common.ShardID `json:"shard_id"`
+	RoomNo        uint64         `json:"room_no"`
+	ShardID2      uint64         `json:"shard_id_2"`
+	RoomNo2       uint64         `json:"room_no_2"`
+	Transactional bool           `json:"transactional"`
 }
 
 func TestShardHotelReserve2(ctx *testframework.TestFrameworkContext) bool {
@@ -189,12 +190,12 @@ func TestShardHotelReserve2(ctx *testframework.TestFrameworkContext) bool {
 }
 
 type ShardHotelCheckout2Param struct {
-	Path          string `json:"path"`
-	ShardID       uint64 `json:"shard_id"`
-	RoomNo        uint64 `json:"room_no"`
-	ShardID2      uint64 `json:"shard_id_2"`
-	RoomNo2       uint64 `json:"room_no_2"`
-	Transactional bool   `json:"transactional"`
+	Path          string         `json:"path"`
+	ShardID       common.ShardID `json:"shard_id"`
+	RoomNo        uint64         `json:"room_no"`
+	ShardID2      uint64         `json:"shard_id_2"`
+	RoomNo2       uint64         `json:"room_no_2"`
+	Transactional bool           `json:"transactional"`
 }
 
 func TestShardHotelCheckout2(ctx *testframework.TestFrameworkContext) bool {

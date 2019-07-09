@@ -38,10 +38,10 @@ func XShardTransfer(ctx *testframework.TestFrameworkContext, users []*sdk.Accoun
 		var txHash common.Uint256
 		var err error = nil
 		if _, ok := native.Contracts[contractAddress]; ok {
-			txHash, err = ctx.Ont.Native.InvokeShardNativeContract(fromShard.ToUint64(), ctx.GetGasPrice(),
+			txHash, err = ctx.Ont.Native.InvokeShardNativeContract(fromShard, ctx.GetGasPrice(),
 				ctx.GetGasLimit(), user, 0, contractAddress, method, []interface{}{param})
 		} else {
-			txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(fromShard.ToUint64(), ctx.GetGasPrice(),
+			txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(fromShard, ctx.GetGasPrice(),
 				ctx.GetGasLimit(), user, contractAddress,
 				[]interface{}{method, []interface{}{user.Address, toAddr, toShard, num}})
 		}
@@ -66,10 +66,10 @@ func XShardTransferRetry(ctx *testframework.TestFrameworkContext, fromShard comm
 		var txHash common.Uint256
 		var err error = nil
 		if _, ok := native.Contracts[contractAddress]; ok {
-			txHash, err = ctx.Ont.Native.InvokeShardNativeContract(fromShard.ToUint64(), ctx.GetGasPrice(),
+			txHash, err = ctx.Ont.Native.InvokeShardNativeContract(fromShard, ctx.GetGasPrice(),
 				ctx.GetGasLimit(), user, 0, contractAddress, method, []interface{}{param})
 		} else {
-			txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(fromShard.ToUint64(), ctx.GetGasPrice(),
+			txHash, err = ctx.Ont.NeoVM.InvokeShardNeoVMContract(fromShard, ctx.GetGasPrice(),
 				ctx.GetGasLimit(), user, contractAddress, []interface{}{method, []interface{}{user.Address, id}})
 		}
 		if err != nil {
@@ -88,7 +88,7 @@ func GetPendingTransfer(ctx *testframework.TestFrameworkContext, addr common.Add
 		Asset:   assetId,
 	}
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
-	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, 0,
+	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, common.NewShardIDUnchecked(0),
 		[]interface{}{param})
 	if err != nil {
 		return fmt.Errorf("pre-execute err: %s", err)
@@ -111,7 +111,7 @@ func GetTransferDetail(ctx *testframework.TestFrameworkContext, user common.Addr
 		TransferId: new(big.Int).SetUint64(transferId),
 	}
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
-	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, 0,
+	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, common.NewShardIDUnchecked(0),
 		[]interface{}{param})
 	if err != nil {
 		return fmt.Errorf("pre-execute err: %s", err)
@@ -128,7 +128,7 @@ func GetSupplyInfo(ctx *testframework.TestFrameworkContext, assetId uint64, shar
 	method := oep4.SUPPLY_INFO
 	contractAddress := utils.ShardAssetAddress
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
-	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, 0,
+	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, common.NewShardIDUnchecked(0),
 		[]interface{}{assetId})
 	if err != nil {
 		return fmt.Errorf("pre-execute err: %s", err)
@@ -141,7 +141,7 @@ func GetSupplyInfo(ctx *testframework.TestFrameworkContext, assetId uint64, shar
 	return nil
 }
 
-func GetOep4Balance(ctx *testframework.TestFrameworkContext, user, contract common.Address, shardId uint64,
+func GetOep4Balance(ctx *testframework.TestFrameworkContext, user, contract common.Address, shardId common.ShardID,
 	shardUrl string) error {
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
 	value, err := ctx.Ont.NeoVM.PreExecInvokeShardNeoVMContract(shardId, contract,
@@ -157,7 +157,7 @@ func GetOep4Balance(ctx *testframework.TestFrameworkContext, user, contract comm
 	return nil
 }
 
-func ChangeMetaData(ctx *testframework.TestFrameworkContext, user *sdk.Account, contract common.Address, shardId uint64,
+func ChangeMetaData(ctx *testframework.TestFrameworkContext, user *sdk.Account, contract common.Address, shardId common.ShardID,
 	shardUrl string, newOwner common.Address, frozen bool, invokedContracts []common.Address) error {
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
 	txHash, err := ctx.Ont.NeoVM.ChangeMetaData(shardId, ctx.GetGasPrice(), ctx.GetGasLimit(), user, contract,

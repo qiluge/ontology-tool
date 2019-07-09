@@ -11,7 +11,7 @@ import (
 	"github.com/ontio/ontology/smartcontract/service/native/utils"
 )
 
-func ShardHotelInit(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID uint64, roomCount uint64) error {
+func ShardHotelInit(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID, roomCount uint64) error {
 	param := shardhotel.ShardHotelInitParam{
 		Count: roomCount,
 	}
@@ -31,7 +31,7 @@ func ShardHotelInit(ctx *testframework.TestFrameworkContext, user *sdk.Account, 
 	return nil
 }
 
-func ShardReserveRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID uint64, roomNo uint64) error {
+func ShardReserveRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID, roomNo uint64) error {
 	param := shardhotel.ShardHotelReserveParam{
 		User:   user.Address,
 		RoomNo: roomNo,
@@ -52,7 +52,7 @@ func ShardReserveRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account
 	return nil
 }
 
-func ShardCheckoutRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID uint64, roomNo uint64) error {
+func ShardCheckoutRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID, roomNo uint64) error {
 	param := shardhotel.ShardHotelCheckoutParam{
 		User:   user.Address,
 		RoomNo: roomNo,
@@ -85,7 +85,7 @@ func ShardQueryRoom(ctx *testframework.TestFrameworkContext, user *sdk.Account, 
 	return userAddr, nil
 }
 
-func ShardHotelReserve2(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID uint64, roomNo uint64,
+func ShardHotelReserve2(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID, roomNo uint64,
 	shardID2 uint64, roomNo2 uint64, transactional bool) error {
 	shardId2, err := common.NewShardID(shardID2)
 	if err != nil {
@@ -115,7 +115,7 @@ func ShardHotelReserve2(ctx *testframework.TestFrameworkContext, user *sdk.Accou
 	return nil
 }
 
-func ShardHotelCheckout2(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID uint64, roomNo uint64,
+func ShardHotelCheckout2(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID, roomNo uint64,
 	shardID2 uint64, roomNo2 uint64, transactional bool) error {
 	shardId2, err := common.NewShardID(shardID2)
 	if err != nil {
