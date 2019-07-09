@@ -12,23 +12,23 @@ sleep 10
 # caller dependent callee
 ./ontology contract invoke --address 0d9b18e994330002d823cd9809543cada9a5a2c1 --params string:init,[int:0] --gasprice 0 --gaslimit 3000000
 ./ontology asset withdrawong 1 --gasprice 0
-./ontology asset transfer --from 1 --to AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to ARpjnrnHEjXhg4aw7vY6xsY6CfQ1XEWzWC --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to AQs2BmzzFVk7pQPfTQQi9CTEz43ejSyBnt --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to AKBSRLbFNvUrWEGtKxNTpe2ZdkepQjYKfM --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to AduX7odaWGipkdvzBwyaTgsumRbRzhhiwe --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to ANFfWhk3A5iFXQrVBHKrerjDDapYmLo5Bi --amount 100000 --gasprice 0
-./ontology asset transfer --from 1 --to AK3YRcRvKrASQ6nTfW48Z4iMZ2sDTDRiMC --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AZonXUcUgzWb2KYdSiLapgqCMEfWGCDTw5 --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AZ1L9xX4DLrG4A7DkyVAYzgLTpsP18FaBF --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to APyA8ZuU7RZdamYRP5gchgbAnxJjHqmfua --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AWVpNjLWiRTXGfyp6vzoLcx36J7uqbx2E9 --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AJmc2BQdQdZJBfDjDtQqXm8sEfSNBhgPV6 --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AHvYokQTYWHpWZJekPzAqQqzi95hSHpt2c --amount 100000 --gasprice 0
+./ontology asset transfer --from 1 --to AKecq2DQF5vpCLmsYDGBY8cvJKTwf8TN69 --amount 100000 --gasprice 0
 ./ontology asset transfer --from 1 --to AN9PD1zC4moFWjDzY4xG9bAr7R7UvHwmLL --amount 100000 --gasprice 0
 sleep 10
 
-./ontology asset transfer --asset ong --from 1 --to AZqk4i7Zhfhc1CRUtZYKrLw4YTSq4Y9khN --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to ARpjnrnHEjXhg4aw7vY6xsY6CfQ1XEWzWC --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to AQs2BmzzFVk7pQPfTQQi9CTEz43ejSyBnt --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to AKBSRLbFNvUrWEGtKxNTpe2ZdkepQjYKfM --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to AduX7odaWGipkdvzBwyaTgsumRbRzhhiwe --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to ANFfWhk3A5iFXQrVBHKrerjDDapYmLo5Bi --amount 1000 --gasprice 0
-./ontology asset transfer --asset ong --from 1 --to AK3YRcRvKrASQ6nTfW48Z4iMZ2sDTDRiMC --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AZonXUcUgzWb2KYdSiLapgqCMEfWGCDTw5 --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AZ1L9xX4DLrG4A7DkyVAYzgLTpsP18FaBF --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to APyA8ZuU7RZdamYRP5gchgbAnxJjHqmfua --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AWVpNjLWiRTXGfyp6vzoLcx36J7uqbx2E9 --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AJmc2BQdQdZJBfDjDtQqXm8sEfSNBhgPV6 --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AHvYokQTYWHpWZJekPzAqQqzi95hSHpt2c --amount 1000 --gasprice 0
+./ontology asset transfer --asset ong --from 1 --to AKecq2DQF5vpCLmsYDGBY8cvJKTwf8TN69 --amount 1000 --gasprice 0
 ./ontology asset transfer --asset ong --from 1 --to AN9PD1zC4moFWjDzY4xG9bAr7R7UvHwmLL --amount 1000 --gasprice 0
 sleep 10
 cd ../ontology-tool
