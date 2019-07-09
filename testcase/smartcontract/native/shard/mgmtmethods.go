@@ -280,7 +280,7 @@ func GetShardCommitDposInfo(ctx *testframework.TestFrameworkContext, shardUrl st
 func UpdateShardConfig(ctx *testframework.TestFrameworkContext, user *sdk.Account, shardID common.ShardID,
 	cfg *utils.Configuration) error {
 	contractAddress := utils.ShardMgmtContractAddress
-	method := shardmgmt.SHARD_RETRY_COMMIT_DPOS
+	method := shardmgmt.UPDATE_CONFIG
 	param := &shardmgmt.UpdateConfigParam{
 		ShardId: shardID,
 		NewCfg:  cfg,
