@@ -10,9 +10,10 @@ import (
 )
 
 type ChangePeerAttrParam struct {
-	ShardId     common.ShardID `json:"shard_id"`
-	PeerWallets []string       `json:"peer_wallets"`
-	Amount      []uint64       `json:"amount"`
+	ShardId    common.ShardID `json:"shard_id"`
+	PeerOwners []string       `json:"peer_owners"`
+	Peers      []string       `json:"peers"`
+	Amount     []uint64       `json:"amount"`
 }
 
 func TestShardChangePeerMaxAuthorization(ctx *testframework.TestFrameworkContext) bool {
@@ -29,7 +30,7 @@ func TestShardChangePeerMaxAuthorization(ctx *testframework.TestFrameworkContext
 		return false
 	}
 	users := make([]*sdk.Account, 0)
-	for _, peerWallet := range param.PeerWallets {
+	for _, peerWallet := range param.PeerOwners {
 		user, ok := getAccountByPassword(ctx, peerWallet)
 		if !ok {
 			ctx.LogError("get account failed")
@@ -37,7 +38,7 @@ func TestShardChangePeerMaxAuthorization(ctx *testframework.TestFrameworkContext
 		}
 		users = append(users, user)
 	}
-	if err := ShardPeerChangeMaxAuth(ctx, param.ShardId, users, param.Amount); err != nil {
+	if err := ShardPeerChangeMaxAuth(ctx, param.ShardId, users, param.Peers, param.Amount); err != nil {
 		ctx.LogError("TestShardChangePeerMaxAuthorization failed: %s", err)
 		return false
 	}
@@ -59,7 +60,7 @@ func TestShardChangePeerProportion(ctx *testframework.TestFrameworkContext) bool
 		return false
 	}
 	users := make([]*sdk.Account, 0)
-	for _, peerWallet := range param.PeerWallets {
+	for _, peerWallet := range param.PeerOwners {
 		user, ok := getAccountByPassword(ctx, peerWallet)
 		if !ok {
 			ctx.LogError("get account failed")
@@ -67,7 +68,7 @@ func TestShardChangePeerProportion(ctx *testframework.TestFrameworkContext) bool
 		}
 		users = append(users, user)
 	}
-	if err := ShardPeerChangeProportion(ctx, param.ShardId, users, param.Amount); err != nil {
+	if err := ShardPeerChangeProportion(ctx, param.ShardId, users, param.Peers, param.Amount); err != nil {
 		ctx.LogError("TestShardChangePeerProportion failed: %s", err)
 		return false
 	}

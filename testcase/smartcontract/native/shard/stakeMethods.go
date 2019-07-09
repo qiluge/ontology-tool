@@ -1,10 +1,8 @@
 package shard
 
 import (
-	"encoding/hex"
 	"fmt"
 
-	"github.com/ontio/ontology-crypto/keypair"
 	sdk "github.com/ontio/ontology-go-sdk"
 	"github.com/ontio/ontology-tool/testframework"
 	"github.com/ontio/ontology/common"
@@ -14,14 +12,14 @@ import (
 	"github.com/ontio/ontology/smartcontract/service/native/utils"
 )
 
-func ShardPeerChangeMaxAuth(ctx *testframework.TestFrameworkContext, shardId common.ShardID, peers []*sdk.Account,
-	amount []uint64) error {
-	for index, peer := range peers {
+func ShardPeerChangeMaxAuth(ctx *testframework.TestFrameworkContext, shardId common.ShardID, owners []*sdk.Account,
+	peers []string, amount []uint64) error {
+	for index, peer := range owners {
 		param := &shard_stake.ChangeMaxAuthorizationParam{
 			ShardId: shardId,
 			User:    peer.Address,
 			Value: &shard_stake.PeerAmount{
-				PeerPubKey: hex.EncodeToString(keypair.SerializePublicKey(peer.PublicKey)),
+				PeerPubKey: peers[index],
 				Amount:     amount[index],
 			},
 		}
@@ -37,13 +35,14 @@ func ShardPeerChangeMaxAuth(ctx *testframework.TestFrameworkContext, shardId com
 	return nil
 }
 
-func ShardPeerChangeProportion(ctx *testframework.TestFrameworkContext, shardId common.ShardID, peers []*sdk.Account, amount []uint64) error {
-	for index, peer := range peers {
+func ShardPeerChangeProportion(ctx *testframework.TestFrameworkContext, shardId common.ShardID, owners []*sdk.Account,
+	peers []string, amount []uint64) error {
+	for index, peer := range owners {
 		param := &shard_stake.ChangeProportionParam{
 			ShardId: shardId,
 			User:    peer.Address,
 			Value: &shard_stake.PeerAmount{
-				PeerPubKey: hex.EncodeToString(keypair.SerializePublicKey(peer.PublicKey)),
+				PeerPubKey: peers[index],
 				Amount:     amount[index],
 			},
 		}
