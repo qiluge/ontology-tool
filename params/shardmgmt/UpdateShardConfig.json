@@ -8,5 +8,5 @@
   "block_msg_delay": 10000,
   "hash_msg_delay": 10000,
   "peer_handshake_timeout": 10,
-  "max_block_change_view": 5
+  "max_block_change_view": 10
 }
