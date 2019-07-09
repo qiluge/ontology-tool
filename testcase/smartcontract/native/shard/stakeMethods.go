@@ -160,7 +160,7 @@ func ShardQueryView(ctx *testframework.TestFrameworkContext, shardID common.Shar
 	if err != nil {
 		return fmt.Errorf("ShardQueryView: build tx failed, err: %s", err)
 	}
-	preTx.ShardID = shardID.ToUint64()
+	preTx.ShardID = shardID
 	value, err := ctx.Ont.PreExecTransaction(preTx)
 	if err != nil {
 		return errors.NewDetailErr(err, errors.ErrNoCode, "get shard storage error")
@@ -184,7 +184,7 @@ func ShardQueryPeerInfo(ctx *testframework.TestFrameworkContext, shardID common.
 	if err != nil {
 		return fmt.Errorf("ShardQueryPeerInfo: build tx failed, err: %s", err)
 	}
-	preTx.ShardID = shardID.ToUint64()
+	preTx.ShardID = shardID
 	value, err := ctx.Ont.PreExecTransaction(preTx)
 	if err != nil {
 		return errors.NewDetailErr(err, errors.ErrNoCode, "get shard storage error")
@@ -209,7 +209,7 @@ func ShardQueryUserInfo(ctx *testframework.TestFrameworkContext, shardID common.
 	if err != nil {
 		return fmt.Errorf("ShardQueryUserInfo: build tx failed, err: %s", err)
 	}
-	preTx.ShardID = shardID.ToUint64()
+	preTx.ShardID = shardID
 	value, err := ctx.Ont.PreExecTransaction(preTx)
 	if err != nil {
 		return errors.NewDetailErr(err, errors.ErrNoCode, "get shard storage error")

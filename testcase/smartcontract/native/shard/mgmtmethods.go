@@ -53,7 +53,7 @@ func ShardCreate(ctx *testframework.TestFrameworkContext, user *sdk.Account, par
 func GetShardDetail(ctx *testframework.TestFrameworkContext, shardID common.ShardID) error {
 	method := shardmgmt.GET_SHARD_DETAIL
 	contractAddress := utils.ShardMgmtContractAddress
-	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, 0,
+	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, common.NewShardIDUnchecked(0),
 		[]interface{}{shardID})
 	if err != nil {
 		return fmt.Errorf("pre-execute err: %s", err)
@@ -225,7 +225,7 @@ func NotifyParentCommitDpos(ctx *testframework.TestFrameworkContext, shardId com
 	contractAddress := utils.ShardMgmtContractAddress
 	method := shardmgmt.NOTIFY_PARENT_COMMIT_DPOS
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
-	txHash, err := ctx.Ont.Native.InvokeShardNativeContract(shardId.ToUint64(), ctx.GetGasPrice(), ctx.GetGasLimit(),
+	txHash, err := ctx.Ont.Native.InvokeShardNativeContract(shardId, ctx.GetGasPrice(), ctx.GetGasLimit(),
 		user, 0, contractAddress, method, []interface{}{})
 	if err != nil {
 		return fmt.Errorf("invokeNativeContract error :", err)
@@ -251,7 +251,7 @@ func ShardRetryCommitDpos(ctx *testframework.TestFrameworkContext, shardId commo
 	contractAddress := utils.ShardMgmtContractAddress
 	method := shardmgmt.SHARD_RETRY_COMMIT_DPOS
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
-	txHash, err := ctx.Ont.Native.InvokeShardNativeContract(shardId.ToUint64(), ctx.GetGasPrice(), ctx.GetGasLimit(),
+	txHash, err := ctx.Ont.Native.InvokeShardNativeContract(shardId, ctx.GetGasPrice(), ctx.GetGasLimit(),
 		user, 0, contractAddress, method, []interface{}{})
 	if err != nil {
 		return fmt.Errorf("invokeNativeContract error :", err)
@@ -264,7 +264,7 @@ func GetShardCommitDposInfo(ctx *testframework.TestFrameworkContext, shardUrl st
 	ctx.Ont.ClientMgr.GetRpcClient().SetAddress(shardUrl)
 	method := shardmgmt.GET_SHARD_COMMIT_DPOS_INFO
 	contractAddress := utils.ShardMgmtContractAddress
-	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, shardId.ToUint64(),
+	value, err := ctx.Ont.Native.PreExecInvokeShardNativeContract(contractAddress, byte(0), method, shardId,
 		[]interface{}{})
 	if err != nil {
 		return fmt.Errorf("pre-execute err: %s", err)

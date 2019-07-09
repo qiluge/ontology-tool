@@ -184,8 +184,7 @@ func TestXShardTransferOep4Retry(ctx *testframework.TestFrameworkContext) bool {
 		return false
 	}
 	if err := XShardTransferRetry(ctx, param.FromShard, users, contract, param.TransferId, param.ShardUrl,
-		"xshardTransferRetry");
-		err != nil {
+		"xshardTransferRetry"); err != nil {
 		ctx.LogError("failed: %s", err)
 		return false
 	}
@@ -273,7 +272,7 @@ func TestGetSupplyInfo(ctx *testframework.TestFrameworkContext) bool {
 
 type GetOep4BalanceParam struct {
 	User     common.Address
-	ShardId  uint64
+	ShardId  common.ShardID
 	Contract string
 	ShardUrl string
 }
@@ -305,7 +304,7 @@ func TestGetOep4Balance(ctx *testframework.TestFrameworkContext) bool {
 
 type ChangeMetaDataParam struct {
 	Path             string
-	ShardId          uint64
+	ShardId          common.ShardID
 	ShardUrl         string
 	Contract         string
 	Owner            common.Address
