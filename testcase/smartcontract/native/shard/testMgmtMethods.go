@@ -106,8 +106,6 @@ func TestGetShardDetail(ctx *testframework.TestFrameworkContext) bool {
 		ctx.LogError("failed: %s", err)
 		return false
 	}
-
-	waitForBlock(ctx)
 	return true
 }
 
